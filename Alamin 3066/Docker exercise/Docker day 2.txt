@@ -1,0 +1,324 @@
+Microsoft Windows [Version 10.0.19045.2846]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\mdala>docker pull nginx
+Using default tag: latest
+latest: Pulling from library/nginx
+26c5c85e47da: Pull complete
+4f3256bdf66b: Pull complete
+2019c71d5655: Pull complete
+8c767bdbc9ae: Pull complete
+78e14bb05fd3: Pull complete
+75576236abf5: Pull complete
+Digest: sha256:63b44e8ddb83d5dd8020327c1f40436e37a6fffd3ef2498a6204df23be6e7e94
+Status: Downloaded newer image for nginx:latest
+docker.io/library/nginx:latest
+
+C:\Users\mdala>docker images
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+nginx        latest    6efc10a0510f   2 weeks ago   142MB
+
+C:\Users\mdala>docker run hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+2db29710123e: Pull complete
+Digest: sha256:4e83453afed1b4fa1a3500525091dbfca6ce1e66903fd4c01ff015dbcb1ba33e
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+
+C:\Users\mdala>docker image
+
+Usage:  docker image COMMAND
+
+Manage images
+
+Commands:
+  build       Build an image from a Dockerfile
+  history     Show the history of an image
+  import      Import the contents from a tarball to create a filesystem image
+  inspect     Display detailed information on one or more images
+  load        Load an image from a tar archive or STDIN
+  ls          List images
+  prune       Remove unused images
+  pull        Download an image from a registry
+  push        Upload an image to a registry
+  rm          Remove one or more images
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+
+Run 'docker image COMMAND --help' for more information on a command.
+
+C:\Users\mdala>docker images
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+nginx         latest    6efc10a0510f   2 weeks ago     142MB
+hello-world   latest    feb5d9fea6a5   19 months ago   13.3kB
+
+C:\Users\mdala>docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+C:\Users\mdala>dockerps -a
+'dockerps' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\mdala>docker ps -a
+CONTAINER ID   IMAGE         COMMAND    CREATED         STATUS                     PORTS     NAMES
+e491b61c9449   hello-world   "/hello"   3 minutes ago   Exited (0) 3 minutes ago             laughing_fermi
+
+C:\Users\mdala>docker inspect
+"docker inspect" requires at least 1 argument.
+See 'docker inspect --help'.
+
+Usage:  docker inspect [OPTIONS] NAME|ID [NAME|ID...]
+
+Return low-level information on Docker objects
+
+C:\Users\mdala>docker inspect
+"docker inspect" requires at least 1 argument.
+See 'docker inspect --help'.
+
+Usage:  docker inspect [OPTIONS] NAME|ID [NAME|ID...]
+
+Return low-level information on Docker objects
+
+C:\Users\mdala>docker inspect e491b61c9449
+[
+    {
+        "Id": "e491b61c9449788ee00aff3034cbb4599e1ac6bbcccb2b29d699405a76404a25",
+        "Created": "2023-05-03T03:44:06.4756938Z",
+        "Path": "/hello",
+        "Args": [],
+        "State": {
+            "Status": "exited",
+            "Running": false,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 0,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2023-05-03T03:44:07.2159216Z",
+            "FinishedAt": "2023-05-03T03:44:07.2142136Z"
+        },
+        "Image": "sha256:feb5d9fea6a5e9606aa995e879d862b825965ba48de054caab5ef356dc6b3412",
+        "ResolvConfPath": "/var/lib/docker/containers/e491b61c9449788ee00aff3034cbb4599e1ac6bbcccb2b29d699405a76404a25/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/e491b61c9449788ee00aff3034cbb4599e1ac6bbcccb2b29d699405a76404a25/hostname",
+        "HostsPath": "/var/lib/docker/containers/e491b61c9449788ee00aff3034cbb4599e1ac6bbcccb2b29d699405a76404a25/hosts",
+        "LogPath": "/var/lib/docker/containers/e491b61c9449788ee00aff3034cbb4599e1ac6bbcccb2b29d699405a76404a25/e491b61c9449788ee00aff3034cbb4599e1ac6bbcccb2b29d699405a76404a25-json.log",
+        "Name": "/laughing_fermi",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                30,
+                120
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "host",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/b8770058a13b8f551373df850260270399da45af977c1d6eb8b5d0501befd278-init/diff:/var/lib/docker/overlay2/5721743d2c6916d4234ae183842f37ff917c2008f5778e406b3b12407a2b9eb0/diff",
+                "MergedDir": "/var/lib/docker/overlay2/b8770058a13b8f551373df850260270399da45af977c1d6eb8b5d0501befd278/merged",
+                "UpperDir": "/var/lib/docker/overlay2/b8770058a13b8f551373df850260270399da45af977c1d6eb8b5d0501befd278/diff",
+                "WorkDir": "/var/lib/docker/overlay2/b8770058a13b8f551373df850260270399da45af977c1d6eb8b5d0501befd278/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "e491b61c9449",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "/hello"
+            ],
+            "Image": "hello-world",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "ee71209e1b5eff15119ef8dc9281dbfa709b3c9647af385ce3b68dfa9c62d0e2",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {},
+            "SandboxKey": "/var/run/docker/netns/ee71209e1b5e",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "3373afa6dc6e63bf743e57458b240996c75b6931751e4ba0b525b37615f1c482",
+                    "EndpointID": "",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]
+
+C:\Users\mdala>docker ps -a
+CONTAINER ID   IMAGE         COMMAND    CREATED         STATUS                     PORTS     NAMES
+e491b61c9449   hello-world   "/hello"   9 minutes ago   Exited (0) 9 minutes ago             laughing_fermi
+
+C:\Users\mdala>docker images
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+nginx         latest    6efc10a0510f   2 weeks ago     142MB
+hello-world   latest    feb5d9fea6a5   19 months ago   13.3kB
+
+C:\Users\mdala>docker run -itd --name mynginx -p 80:80 nginx
+18510a4df4e4e1f52938b25e1f83f0a2dea99caac0e2e0d5feee388f1534163a
+
+C:\Users\mdala>docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                NAMES
+18510a4df4e4   nginx     "/docker-entrypoint.…"   3 minutes ago   Up 3 minutes   0.0.0.0:80->80/tcp   mynginx
+
+C:\Users\mdala>docker run -itd --name mynginx2 -p 81:80 nginx
+bd5165a4e911e5463fd190d659de21ed45f08757bd5eec6fbdb5e0ef089ff694
+
+C:\Users\mdala>docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                NAMES
+bd5165a4e911   nginx     "/docker-entrypoint.…"   7 seconds ago   Up 5 seconds   0.0.0.0:81->80/tcp   mynginx2
+18510a4df4e4   nginx     "/docker-entrypoint.…"   6 minutes ago   Up 6 minutes   0.0.0.0:80->80/tcp   mynginx
+
+C:\Users\mdala>
